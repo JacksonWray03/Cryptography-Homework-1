@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Tester
+public class Part_1
 {
 
     public static void main(String[] args)
