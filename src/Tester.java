@@ -13,11 +13,13 @@ public class Tester
 
 
         plainText= scanner.nextLine();
-        System.out.println(plainText);
 
-        System.out.println(plainText.length());
+       plainText = plainText.toLowerCase();
 
-        System.out.println("Please input desire key");
+
+
+
+        System.out.println("Please input the desired key");
         int key=0;
 
 
@@ -32,20 +34,46 @@ public class Tester
             System.out.println("Value entered is not an integer ... Exiting");
         }
 
-        System.out.println(key);
+
 
         int i;
 
 
+        Character temp;
         ArrayList<Character> splitter = new ArrayList<>();
 
         for (i=0;i<plainText.length();i++)
         {
 
+            temp=plainText.charAt(i);
 
 
+            if (!temp.equals(' '))
+            {
+                for (int j = 0; j<key;j++)
+                {
 
+                    temp++;
+                    if(temp.charValue()==123)
+                    {
+                        temp = 'a';
+                    }
+                }
+
+
+            }
+
+            splitter.add(temp);
         }
+
+        for(Character c : splitter)
+        {
+            System.out.print(c);
+        }
+
+
+
+
 
     }
 
