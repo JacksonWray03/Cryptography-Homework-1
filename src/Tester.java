@@ -32,6 +32,7 @@ public class Tester
         catch(Exception e)
         {
             System.out.println("Value entered is not an integer ... Exiting");
+            System.exit(0);
         }
 
 
@@ -70,9 +71,60 @@ public class Tester
         {
             System.out.print(c);
         }
+        System.out.println("");
 
 
 
+
+
+
+        System.out.println("Please input a ciphertext sentence");
+        scanner.nextLine();
+        String cipherText = scanner.nextLine();
+        System.out.println("Please input the decryption key");
+
+        try
+        {
+            key = scanner.nextInt();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Value entered is not an integer ... Exiting");
+            System.exit(0);
+        }
+
+        cipherText = cipherText.toLowerCase();
+
+        ArrayList<Character> splitter2 = new ArrayList<>();
+
+        for (i=0;i<cipherText.length();i++)
+        {
+
+            temp=cipherText.charAt(i);
+
+
+            if (!temp.equals(' '))
+            {
+                for (int j = 0; j<key;j++)
+                {
+
+                    temp--;
+                    if(temp.charValue()==96)
+                    {
+                        temp = 'z';
+                    }
+                }
+
+
+            }
+
+            splitter2.add(temp);
+        }
+
+        for(Character c : splitter2)
+        {
+            System.out.print(c);
+        }
 
 
     }
