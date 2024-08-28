@@ -18,11 +18,51 @@ public class Part_2
 
 
         int i;
+        int j;
+        int k;
+        Character tempchar;
+        String tempString="";
 
         ArrayList<String> cleanSample = cleanSample("data/sample.txt");
-        System.out.println(cleanSample);
         ArrayList<String> cleanCipher = cipherList(cipherText);
+
+        ArrayList<ArrayList<String>> theMatrix = new ArrayList<>();
+
         System.out.println(cleanCipher);
+
+        for (i=0;i<26;i++)
+        {
+            ArrayList<String> option = new ArrayList<>();
+            for(String word : cleanCipher)
+            {
+                for(j=0;j<word.length();j++)
+                {
+                    tempchar=word.charAt(j);
+
+                    for (k=0;k<i;k++)
+                    {
+                        tempchar--;
+                        if(tempchar.charValue()==96)
+                        {
+                            tempchar = 'z';
+                        }
+                    }
+                    tempString= tempString.concat(String.valueOf(tempchar));
+
+
+                }
+
+
+                word = word.replace(word, tempString);
+                tempString = "";
+
+                option.add(word);
+            }
+
+            theMatrix.add(option);
+        }
+
+        System.out.println(theMatrix);
 
 
     }
