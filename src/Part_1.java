@@ -63,7 +63,10 @@ public class Part_1
 
 
             }
-
+            if (temp.charValue()<=96 || temp.charValue()>=123)
+            {
+                temp= ' ';
+            }
             splitter.add(temp);
         }
 
