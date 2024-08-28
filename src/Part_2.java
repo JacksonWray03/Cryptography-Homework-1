@@ -74,6 +74,8 @@ public class Part_2 {
         ArrayList<String> best = new ArrayList<>();
         int i=0;
         int checks;
+        int high=0;
+        int iter=0;
 
         for(ArrayList<String> option : theMatrix)
         {
@@ -83,15 +85,18 @@ public class Part_2 {
                 if (sampleText.contains(word))
                 {
                     checks++;
-                    if (checks==option.size())
+                    if (checks>high)
                     {
+                        high=checks;
                         best = option;
-                        System.out.println("The Used Key is: " + i);
+                        iter = i;
+
                     }
                 }
             }
             i++;
         }
+        System.out.println("The Used Key is: " + iter);
 
         return best;
     }
